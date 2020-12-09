@@ -1,5 +1,5 @@
 <a href="CONTRIBUTING.md" alt="Hacktoberfest"><img src="https://badgen.net/badge/hacktoberfest/friendly/pink" /></a>
- [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
+ [![Open Source](https://badges.frapsoft.com/os/v3/open-source.svg?v=103)](https://opensource.org/)
 
 
 # Jackson Project Home @github
@@ -9,6 +9,7 @@ This is the home page of the Jackson Project.
 ## What is New?
 
 * Oct 1, 2020: Jackson participates in [Hacktoberfest2020](https://hacktoberfest.digitalocean.com/) and we have a [Jackson/Hacktoberfest](https://github.com/FasterXML/Hacktoberfest2020) repo too!
+* Oct 9, 2020: Added [Contributing](CONTRIBUTING.md)
 
 ## What is Jackson?
 
@@ -43,18 +44,6 @@ for linking all the pieces together.
 
 A good companion to this README is the [Jackson Project FAQ](../../wiki/FAQ).
 
-## On reporting issues
-
-First things first: unless you know what you are doing, *DO NOT FILE ISSUES ON THE ISSUE TRACKER OF THIS REPO*.
-
-Instead, do one of the following:
-
-* For Jackson usage questions (for core components or modules), please use the [Jackson-user](https://groups.google.com/forum/#!forum/jackson-user) Google group
-    * or, [StackOverflow](http://stackoverflow.com), `#jackson`
-* For reporting issues on Jackson implementation, report it against one of the components
-    * The most common issue you will have is with [Jackson databind](../../../jackson-databind/issues)
-* For suggestions and new ideas, try [Jackson Future Ideas](../../../jackson-future-ideas)
-
 ## Actively developed versions
 
 Jackson suite has two major versions: 1.x is deprecated and no versions are released;
@@ -64,7 +53,7 @@ This is by design and was chosen as the strategy to allow smoother migration fro
 
 The latest stable versions from these branches are:
 
-* [2.11.2](../../wiki/Jackson-Release-2.11.2), released on 02-Aug-2020
+* [2.12.0](../../wiki/Jackson-Release-2.12), released on 29-Nov-2020
 * [1.9.13](../../wiki/JacksonRelease1.9), released 14-Jul-2013
 
 Recommended way to use Jackson is through Maven repositories; releases are made to Central Maven Repository (CMR).
@@ -76,10 +65,10 @@ Release notes for 2.x releases are found from [Jackson Releases](../../wiki/Jack
 
 Currently Jackson 2.x repositories have following actively developed branches:
 
-* `2.12`: next minor version being developed (as of May 2020)
-* `2.11`: current stable, actively maintained branch from which patch releases are still made
-* `2.10`: previous stable branch, patch releases still made
-* `2.9`: non-active branch from which micro-patch releases (like 2.9.10.5) MAY be made for individual components (`jackson-databind` usually)
+* `2.13`: next minor version being developed (as of November 2020)
+* `2.12`: current stable, actively maintained branch from which patch releases are still made
+* `2.11`: previous stable branch, patch releases still made
+* `2.10`: non-active branch from which micro-patch releases (like 2.9.10.5) MAY be made for individual components (`jackson-databind` usually)
 * `master`: next major version, 3.0. Still changing rapidly
 
 Other `2.x` branches exist but no full releases are planned. Micro-patches still possible
@@ -159,15 +148,15 @@ Most of them simply implement `streaming` API abstractions, so that databinding 
 Currently following data format modules are fully usable and supported (version number in parenthesis, if included, is the
 first Jackson 2.x version to include module; if missing, included from 2.0)
 
-* [Avro](../../../jackson-dataformat-avro): supports [Avro](http://en.wikipedia.org/wiki/Apache_Avro) data format, with `streaming` implementation plus additional `databind`-level support for Avro Schemas
-* [CBOR](../../../jackson-dataformat-cbor): supports [CBOR](http://tools.ietf.org/search/rfc7049) data format (a binary JSON variant).
-* [CSV](../../../jackson-dataformat-csv): supports [Comma-separated values](http://en.wikipedia.org/wiki/Comma-separated_values) format -- `streaming` api, with optional convenience `databind` additions
-* [Ion](../../../jackson-dataformats-binary/tree/master/ion) (NEW with Jackson 2.9!): support for [Amazon Ion](https://amznlabs.github.io/ion-docs/) binary data format (similar to CBOR, Smile, i.e. binary JSON - like)
-* [(Java) Properties](../../../jackson-dataformat-properties) (2.8): creating nested structure out of implied notation (dotted by default, configurable), flattening similarly on serialization
-* [Protobuf](../../../jackson-dataformat-protobuf) (2.6): supported similar to `Avro`
-* [Smile](../../../jackson-dataformat-smile): supports [Smile (binary JSON)](https://github.com/FasterXML/smile-format-specification) -- 100% API/logical model compatible via `streaming` API, no changes for `databind`
+* [Avro](../../../jackson-dataformats-binary/tree/master/avro): supports [Avro](http://en.wikipedia.org/wiki/Apache_Avro) data format, with `streaming` implementation plus additional `databind`-level support for Avro Schemas
+* [CBOR](../../../jackson-dataformats-binary/tree/master/cbor): supports [CBOR](http://tools.ietf.org/search/rfc7049) data format (a binary JSON variant).
+* [CSV](../../../jackson-dataformats-text/blob/master/csv): supports [Comma-separated values](http://en.wikipedia.org/wiki/Comma-separated_values) format -- `streaming` api, with optional convenience `databind` additions
+* [Ion](../../../jackson-dataformats-binary/tree/master/ion) (2.9): support for [Amazon Ion](https://amznlabs.github.io/ion-docs/) binary data format (similar to CBOR, Smile, i.e. binary JSON - like)
+* [(Java) Properties](../../../jackson-dataformats-text/blob/master/properties) (2.8): creating nested structure out of implied notation (dotted by default, configurable), flattening similarly on serialization
+* [Protobuf](../../../jackson-dataformats-binary/tree/master/protobuf) (2.6): supported similar to `Avro`
+* [Smile](../../../jackson-dataformats-binary/tree/master/smile): supports [Smile (binary JSON)](https://github.com/FasterXML/smile-format-specification) -- 100% API/logical model compatible via `streaming` API, no changes for `databind`
 * [XML](../../../jackson-dataformat-xml): supports XML; provides both `streaming` and `databind` implementations. Similar to JAXB' "code-first" mode (no support for "XML Schema first", but can use JAXB beans)
-* [YAML](../../../jackson-dataformat-yaml): supports [YAML](http://en.wikipedia.org/wiki/Yaml), which being similar to JSON is fully supported with simple `streaming` implementation
+* [YAML](../../../jackson-dataformats-text/blob/master/yaml): supports [YAML](http://en.wikipedia.org/wiki/Yaml), which being similar to JSON is fully supported with simple `streaming` implementation
 
 There are also other data format modules, provided by developers outside Jackson core team:
 
@@ -289,13 +278,19 @@ This is important to give us time to provide a patch, if necessary, for the prob
 
 ### Tutorials
 
-For first-time users there are many good Jackson usage tutorials, including:
+For first-time users there are many good Jackson usage tutorials, 
+including general usage / JSON tutorials:
 
 * [Baeldung Jackson JSON Tutorial](https://www.baeldung.com/jackson)
+* [Javarevisited Jackson JSON Tutorial](https://javarevisited.blogspot.com/search/label/Java%20JSON%20tutorial)
 * [Jenkov.com Jackson Tutorial](http://tutorials.jenkov.com/java-json/index.html)
 * [JournalDev Jackson Tutorial](https://www.journaldev.com/2324/jackson-json-java-parser-api-example-tutorial)
 * [LogicBig.com Jackson Tutorial](https://www.logicbig.com/tutorials/misc/jackson.html)
 * [StudyTrails Jackson Introduction](http://www.studytrails.com/java/json/java-jackson-introduction/)
+
+and more specific tutorials:
+
+* [Java67 Javakcson CSV Tutorial](https://www.java67.com/2019/05/how-to-read-csv-file-in-java-using-jackson-library.html) (CSV)
 
 ### Note on reporting Bugs
 
@@ -304,6 +299,8 @@ is not enabled for this project.
 If you are unsure which specific project issue affects, the most likely component
 is `jackson-databind`, so you would use
 [Jackson Databind Issue Tracker](https://github.com/FasterXML/jackson-databind/issues).
+
+For suggestions and new ideas, try [Jackson Future Ideas](../../../jackson-future-ideas)
 
 ### Java JSON library comparisons
 
